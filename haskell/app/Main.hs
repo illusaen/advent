@@ -1,5 +1,5 @@
 module Main (main) where
 
-import qualified Day1.Main (main)
+import qualified Day2.Main (main)
 
-main = Day1.Main.main
+main = Day2.Main.main
