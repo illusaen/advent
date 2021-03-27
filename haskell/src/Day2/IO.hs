@@ -28,10 +28,11 @@ validatePart2 :: InputLine -> Bool
 validatePart2 (InputLine min' max' char password)
   | char == "" = True
   | li < 0 || ri < 0 || null password = False
-  | otherwise = (password !! li == head char && password !! ri /= head char) || (password !! li /= head char && password !! ri == head char)
+  | otherwise = (password !! li == ch && password !! ri /= ch) || (password !! li /= ch && password !! ri == ch)
   where
     li = min' - 1
     ri = max' - 1
+    ch = head char
 
 contents :: IO [InputLine]
 contents = do
