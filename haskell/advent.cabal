@@ -55,6 +55,7 @@ test-suite advent-test
   main-is: Spec.hs
   other-modules:
       Day1.Utils.MathSpec
+      Day2.IOSpec
       SpecHelper
       Paths_advent
   hs-source-dirs:

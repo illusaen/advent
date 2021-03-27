@@ -1,10 +1,10 @@
-module Day2.IO (contents) where
+module Day2.IO where
 
 import Data.List.Split (splitOn)
 import Data.Maybe (fromMaybe)
 import Text.Read (readMaybe)
 
-data InputLine = InputLine { min' :: Int, max' :: Int, char :: String, password :: String } deriving Show
+data InputLine = InputLine { min' :: Int, max' :: Int, char :: String, password :: String } deriving (Eq, Show)
 
 parseInput :: [String] -> InputLine
 parseInput str = InputLine {
