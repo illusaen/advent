@@ -12,7 +12,10 @@ def main():
   content = utils.readFile('../../inputs/day1.txt')
 
   els = utils.findElements(content, args.sum, args.number)
-  print("\n".join([ "Found [" + ", ".join([str(ie) for ie in e]) + "] with product of " + str(p) + "." for e, p in els ]))
+  if len(els) == 0:
+    print("No sequences found.")
+  else:
+    print("\n".join([ "Found [" + ", ".join([str(ie) for ie in e]) + "] with product of " + str(p) + "." for e, p in els ]))
 
 if __name__ == "__main__":
   main()
