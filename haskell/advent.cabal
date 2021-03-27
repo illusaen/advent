@@ -21,14 +21,16 @@ source-repository head
 
 library
   exposed-modules:
-      Day1.Lib.Math
-      Lib
+      Day1.Main
+      Day1.Utils.IO
+      Day1.Utils.Math
   other-modules:
       Paths_advent
   hs-source-dirs:
       src
   build-depends:
       base >=4.7 && <5
+    , optparse-applicative
   default-language: Haskell2010
 
 executable advent-exe
@@ -41,13 +43,14 @@ executable advent-exe
   build-depends:
       advent
     , base >=4.7 && <5
+    , optparse-applicative
   default-language: Haskell2010
 
 test-suite advent-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
-      Day1.Lib.MathSpec
+      Day1.Utils.MathSpec
       SpecHelper
       Paths_advent
   hs-source-dirs:
@@ -57,4 +60,5 @@ test-suite advent-test
       advent
     , base >=4.7 && <5
     , hspec
+    , optparse-applicative
   default-language: Haskell2010

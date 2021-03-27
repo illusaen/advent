@@ -1,6 +1,5 @@
-module Main where
+module Main (main) where
 
-import Lib
+import qualified Day1.Main (main)
 
-main :: IO ()
-main = someFunc
+main = Day1.Main.main
