@@ -17,27 +17,21 @@ parseInput str = InputLine {
     (minString:maxString:_) = splitOn "-" a
 
 validate :: InputLine -> Bool
-validate input
-  | minOccurrences == 0 || ch == "" = True
-  | null pwd = False
-  | otherwise = minOccurrences <= occurences && (maxOccurrences == -1 || maxOccurrences >= occurences)
+validate (InputLine min' max' char password)
+  | min' == 0 || char == "" = True
+  | null password = False
+  | otherwise = min' <= occurences && (max' == -1 || max' >= occurences)
   where
-    occurences = length $ filter (\c -> ch == "" || head ch == c) pwd
-    minOccurrences = min' input
-    maxOccurrences = max' input
-    pwd = password input
-    ch = char input
+    occurences = length $ filter (\c -> char == "" || head char == c) password
 
 validatePart2 :: InputLine -> Bool
-validatePart2 input
-  | ch == "" = True
-  | li < 0 || ri < 0 || null pwd = False
-  | otherwise = (pwd !! li == head ch && pwd !! ri /= head ch) || (pwd !! li /= head ch && pwd !! ri == head ch)
+validatePart2 (InputLine min' max' char password)
+  | char == "" = True
+  | li < 0 || ri < 0 || null password = False
+  | otherwise = (password !! li == head char && password !! ri /= head char) || (password !! li /= head char && password !! ri == head char)
   where
-    li = min' input - 1
-    ri = max' input - 1
-    pwd = password input
-    ch = char input
+    li = min' - 1
+    ri = max' - 1
 
 contents :: IO [InputLine]
 contents = do
